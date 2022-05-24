@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html >
+<head>  
+  <meta charset="UTF-8">  
+  <title>ML Type API</title>  
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel='stylesheet' href="{{ url_for('static', filename='css/homepage.css') }}">
+
+</head>  
+
+
+<body>
+ <div class="login"> 
+    <h1>Medical Sample Prediction</h1> 
+
+    <form action="{{ url_for('predict')}}"method="post"> 
+    <label for="Patient_Gender">Patient Gender</label>
+    <select id="Patient_Gender" name="Patient_Gender">
+      <option value="0">select</option>
+      <option value="1">Female</option>
+      <option value="2">Male</option>
+    
+    </select>
+    <br>
+    <label for="Sample">Sample</label>
+    <select id="Sample" name="Sample">
+      <option value="0">select</option>
+      <option value="1">Blood</option>
+      <option value="2">Urine</option>
+      <option value="3">Swab</option>
+        
+        
+    </select>
+    <br>
+    <label for="Test_Name">Test Name</label>
+    <select id="Test_Name" name="Test_Name">
+      <option value="0">select</option>
+      <option value="1">Acute kidney profile</option>
+      <option value="2">CBC</option>
+      <option value="3">Complete Urinalysis</option>
+      <option value="4">Fasting blood sugar</option>
+      <option value="5">H1N1</option>
+      <option value="6">HbA1c</option>
+      <option value="7">Lipid Profile</option>
+      <option value="8">RTPCR</option>
+      <option value="9">TSH</option>
+      <option value="10">Vitamin D-25Hydroxy</option>
+    
+    </select>
+    <br>
+    <label for="Way_Of_Storage_Of_Sample">Way Of Storage Of Sample</label>
+    <select id="Way_Of_Storage_Of_Sample" name="Way_Of_Storage_Of_Sample">
+      <option value="0">select</option>
+      <option value="1">Advanced</option>
+      <option value="2">Normal</option>
+  
+    </select>
+    <br>
+      <label for="Cut_off_Schedule">Cut off Schedule</label>
+      <select id="Cut_off_Schedule" name="Cut_off_Schedule">
+        <option value="0">select</option>
+        <option value="1">Daily</option>
+        <option value="2">Sample by 5pm</option>
+      
+    </select>
+    <br>
+       <label for="Traffic_Conditions">Traffic Conditions</label>
+       <select id="Traffic_Conditions" name="Traffic_Conditions">
+         <option value="0">select</option>
+         <option value="1">Low Traffic</option>
+         <option value="2">Medium Traffic</option>
+         <option value="3">High Traffic</option>
+               
+        
+    </select>
+    <br>
+    Patient Age:
+        <input type="text" name="Patient_Age" placeholder="Patient age" required="required" />
+        
+    </select>
+    <br>
+    Test Booking Time HH:MM:
+        <input type="text" name="Test_Booking_Time_HH_MM" placeholder="Test booking Time" required="required" />
+    
+    </select>
+    <br>
+    Scheduled Sample Collection Time HH:MM:
+        <input type="text" name="Scheduled_Sample_Collection_Time_HH_MM" placeholder="Scheduled Sample Collection Time" required="required" />
+        
+    </select>
+    <br>
+    Cut-off  Time HH:MM:
+        <input type="text" name="Cut_off_time_HH_MM" placeholder="Cut off Time" required="required" />
+    
+    </select>
+    <br>
+    Agent Location in KM:
+        <input type="text" name="Agent_Location_KM" placeholder="Agent location" required="required" />
+    
+    </select>
+    <br>
+    Time Taken To Reach Patient in Min
+        <input type="text" name="Time_Taken_To_Reach_Patient_MM" placeholder="Time Taken To Reach Patient" required="required" />
+    
+    </select>
+    <br>
+    Time For Sample Collection in Min:
+        <input type="text" name="Time_For_Sample_Collection_MM" placeholder="Time For Sample Collection" required="required" />
+    
+    </select>
+    <br>
+    Lab Location in KM:
+        <input type="text" name="Lab_Location_KM" placeholder="Lab Location" required="required" />
+    
+     </select>
+     <br>
+     Time Taken To Reach Lab in Min:  
+        <input type="text" name="Time_Taken_To_Reach_Lab_MM" placeholder="Time Taken To Reach Lab" required="required" />
+
+  </select>
+  <br>
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button> 
+   </form>
+   
+   <br>
+   <br>   
+   {{ prediction_text}}
+    
+</div>
+
+
+</body>
+</html>
